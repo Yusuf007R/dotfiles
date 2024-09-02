@@ -29,6 +29,7 @@ return {
         { desc = "Find Help tags" })
       vim.keymap.set("n", "<leader>fk", builtin.keymaps,
         { desc = "Find Keymaps" })
+      vim.keymap.set("n", "<leader>fo", builtin.lsp_document_symbols, { desc = "Find Methods in file" })
     end,
   },
 }
