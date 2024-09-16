@@ -1,1 +1,88 @@
-/mnt/c/Users/Yusuf/komorebi.json
+{
+  "$schema": "https://raw.githubusercontent.com/LGUG2Z/komorebi/v0.1.28/schema.json",
+  "app_specific_configuration_path": "$Env:USERPROFILE/applications.yaml",
+  "window_hiding_behaviour": "Cloak",
+  "cross_monitor_move_behaviour": "Insert",
+  "default_workspace_padding": 5,
+  "default_container_padding": 5,
+  "border": true,
+  "border_width": 4,
+  "animation": {
+    "enabled": false,
+    "fps": 144,
+    "style": "Linear"
+  },
+  "border_offset": -1,
+  "border_colours": {
+    "single": "#f39bef",
+    "stack": "#00a542",
+    "monocle": "#ff3399",
+    "unfocused": "#808080"
+  },
+  "stackbar": {
+    "height": 40,
+    "mode": "OnStack",
+    "tabs": {
+      "width": 300,
+      "focused_text": "#00a542",
+      "unfocused_text": "#b3b3b3",
+      "background": "#141414"
+    }
+  },
+
+  "monitors": [
+    {
+      "workspaces": [
+        {
+          "name": "Browser",
+          "layout": "BSP",
+          "initial_workspace_rules": [
+            {
+              "kind": "Exe",
+              "matching_strategy": "Equals",
+              "id": "brave.exe"
+            }
+          ]
+        },
+        {
+          "name": "Code",
+          "layout": "BSP",
+          "initial_workspace_rules": [
+            {
+              "kind": "Exe",
+              "matching_strategy": "Equals",
+              "id": "Code.exe"
+            }
+          ]
+        },
+        {
+          "name": "3",
+          "layout": "BSP"
+        },
+        {
+          "name": "4",
+          "layout": "BSP"
+        },
+        {
+          "name": "Spotify",
+          "layout": "BSP",
+          "initial_workspace_rules": [
+            {
+              "kind": "Exe",
+              "matching_strategy": "Equals",
+              "id": "Spotify.exe"
+            }
+          ]
+        },
+        {
+          "name": "6",
+          "layout": "BSP"
+        },
+        {
+          "name": "7",
+          "layout": "BSP"
+        }
+      ]
+    }
+  ]
+}
