@@ -5,3 +5,5 @@
 !/nvim/**
 !tmux/
 !/tmux/**
+!win-stuff/
+!/win-stuff/**
