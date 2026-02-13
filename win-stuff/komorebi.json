@@ -1,26 +1,34 @@
 {
-  "$schema": "https://raw.githubusercontent.com/LGUG2Z/komorebi/v0.1.28/schema.json",
-  "app_specific_configuration_path": "$Env:USERPROFILE/applications.yaml",
+  "$schema": "https://raw.githubusercontent.com/LGUG2Z/komorebi/v0.1.39/schema.json",
+  "app_specific_configuration_path": "C:/Users/Yusuf/applications.json",
   "window_hiding_behaviour": "Cloak",
   "cross_monitor_move_behaviour": "Insert",
-  "default_workspace_padding": 5,
-  "default_container_padding": 5,
+  "default_workspace_padding": 3,
+  "default_container_padding": 3,
   "border": true,
-  "border_width": 4,
+  "border_width": 5,
   "animation": {
-    "enabled": false,
+    "enabled": true,
+    "duration": 200,
     "fps": 144,
-    "style": "Linear"
+    "style": "EaseOutSine"
   },
-  "border_offset": -1,
   "border_colours": {
     "single": "#f39bef",
     "stack": "#00a542",
     "monocle": "#ff3399",
-    "unfocused": "#808080"
+    "unfocused": "#808080",
+    "floating": "#00000000"
   },
+  "floating_applications": [
+    {
+      "kind": "Title",
+      "matching_strategy": "Contains",
+      "id": "Android Emulator"
+    }
+  ],
   "stackbar": {
-    "height": 40,
+    "height": 0,
     "mode": "OnStack",
     "tabs": {
       "width": 300,
@@ -29,31 +37,16 @@
       "background": "#141414"
     }
   },
-
   "monitors": [
     {
       "workspaces": [
         {
-          "name": "Browser",
-          "layout": "BSP",
-          "initial_workspace_rules": [
-            {
-              "kind": "Exe",
-              "matching_strategy": "Equals",
-              "id": "brave.exe"
-            }
-          ]
+          "name": "1",
+          "layout": "BSP"
         },
         {
-          "name": "Code",
-          "layout": "BSP",
-          "initial_workspace_rules": [
-            {
-              "kind": "Exe",
-              "matching_strategy": "Equals",
-              "id": "Code.exe"
-            }
-          ]
+          "name": "2",
+          "layout": "BSP"
         },
         {
           "name": "3",
@@ -64,22 +57,27 @@
           "layout": "BSP"
         },
         {
-          "name": "Spotify",
-          "layout": "BSP",
-          "initial_workspace_rules": [
-            {
-              "kind": "Exe",
-              "matching_strategy": "Equals",
-              "id": "Spotify.exe"
-            }
-          ]
+          "name": "5",
+          "layout": "BSP"
         },
         {
           "name": "6",
           "layout": "BSP"
-        },
+        }
+      ]
+    },
+    {
+      "workspaces": [
         {
           "name": "7",
+          "layout": "BSP"
+        },
+        {
+          "name": "8",
+          "layout": "BSP"
+        },
+        {
+          "name": "9",
           "layout": "BSP"
         }
       ]

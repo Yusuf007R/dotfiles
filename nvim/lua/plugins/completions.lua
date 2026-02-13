@@ -13,18 +13,13 @@ return {
   },
 
   {
-    "zbirenbaum/copilot-cmp",
-    lazy = true,
-    event = { "BufReadPost", "BufNewFile" },
-    config = function()
-      require("copilot_cmp").setup()
-    end
-  },
-  {
     "hrsh7th/nvim-cmp",
     lazy = true,
     event = { "BufReadPost", "BufNewFile" },
     cmd = { "LspInfo", "LspInstall", "LspUninstall" },
+    dependencies = {
+      "supermaven-inc/supermaven-nvim",
+    },
     config = function()
       local cmp = require("cmp")
       require("luasnip.loaders.from_vscode").lazy_load()
@@ -53,9 +48,9 @@ return {
           ghost_text = true,
         },
         sources = cmp.config.sources({
-          { name = "copilot" },
-          { name = "nvim_lsp" },
-          { name = "luasnip" }, -- For luasnip users.
+          { name = "supermaven", priority = 100, group_index = 1 },
+          { name = "nvim_lsp", priority = 90, group_index = 1 },
+          { name = "luasnip", priority = 50, group_index = 1 },
         }, {
           { name = "buffer" },
         }),

@@ -1,9 +1,12 @@
 return {
   {
-    "williamboman/mason.nvim",
+    "mason-org/mason.nvim",
   },
   {
-    "williamboman/mason-lspconfig.nvim",
+    "mason-org/mason-lspconfig.nvim",
+  },
+  {
+    "WhoIsSethDaniel/mason-tool-installer.nvim",
   },
   {
     "neovim/nvim-lspconfig",
@@ -13,20 +16,17 @@ return {
     config = function()
       local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
-      local lspconfig = require("lspconfig")
-
-      local default_setup = function(server)
-        lspconfig[server].setup({
-          capabilities = capabilities,
-        })
-      end
-
-
       require("mason").setup({})
       require('mason-lspconfig').setup({
-        ensure_installed = { 'tsserver', 'lua_ls', 'eslint' },
-        handlers = {
-          default_setup,
+        ensure_installed = { 'ts_ls', 'lua_ls', 'eslint' },
+        automatic_enable = true,
+      })
+      require('mason-tool-installer').setup({
+        ensure_installed = {
+          "prettierd",
+          "stylua",
+          "isort",
+          "black",
         },
       })
 

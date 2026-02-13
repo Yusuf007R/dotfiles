@@ -29,14 +29,15 @@ alt + shift + j         : komorebic move down
 alt + shift + k         : komorebic move up
 alt + shift + l         : komorebic move right   
 
+
 # Stack windows
-# alt + left              : komorebic stack left
-# alt + down              : komorebic stack down
-# alt + up                : komorebic stack up
-# alt + right             : komorebic stack right
-# alt + oem_1             : komorebic unstack # oem_1 is ;
-# alt + oem_4             : komorebic cycle-stack previous # oem_4 is [
-# alt + oem_6             : komorebic cycle-stack next # oem_6 is ]
+alt + left              : komorebic stack left
+alt + down              : komorebic stack down
+alt + up                : komorebic stack up
+alt + right             : komorebic stack right
+alt + oem_1             : komorebic unstack # oem_1 is ;
+alt + oem_4             : komorebic cycle-stack previous # oem_4 is [
+alt + oem_6             : komorebic cycle-stack next # oem_6 is ]
 
 # Resize
 alt + oem_plus          : komorebic resize-axis horizontal increase
@@ -51,7 +52,7 @@ alt + t                 : komorebic toggle-float
 # Window manager options
 alt + shift + r         : komorebic retile
 alt + shift + Home      : komorebic toggle-pause
-alt + shift + m         : komorebic unmanage
+alt + shift + m         : komorebic manage
 
 # Layouts
 alt + x                 : komorebic flip-layout horizontal
@@ -81,3 +82,6 @@ alt + shift + 5         : komorebic send-to-workspace 4
 alt + shift + 6         : komorebic send-to-workspace 5
 alt + shift + 7         : komorebic send-to-workspace 6
 alt + shift + 8         : komorebic send-to-workspace 7
+
+
+alt + shift + g : $gap=450; $s=(komorebic state | ConvertFrom-Json); $m=[int]$s.monitors.focused; $w=[int]$s.monitors.elements[$m].workspaces.focused; $off=$s.monitors.elements[$m].workspaces.elements[$w].work_area_offset; $r=0; if ($off -ne $null) { $r=[int]$off.right }; if ($r -gt 0) { komorebic workspace-work-area-offset $m $w 0 0 0 0 } else { komorebic workspace-work-area-offset $m $w 0 0 $gap 0 }; komorebic retile
