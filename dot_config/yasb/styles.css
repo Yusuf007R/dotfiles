@@ -1,0 +1,166 @@
+:root {
+  --bg-primary: #1e1e2e;
+  --text-primary: #cdd6f4;
+  --text-muted: #95a0ad;
+  --text-populated: #fc7aa5;
+  --text-active: #98bbe9;
+  --accent-primary: #89b4fa;
+  --accent-success: #0eb986;
+  --btn-bg: #313244;
+  --btn-disabled: #4e525c;
+  --btn-text: #acb2c9;
+  --weather-sunny: rgb(221, 210, 107);
+  --weather-night: rgb(107, 189, 221);
+  --radius-lg: 15px;
+  --radius-md: 14px;
+  --font-base: 12px;
+  --font-md: 14px;
+  --font-lg: 16px;
+  --spacing-xs: 2px;
+  --spacing-sm: 3px;
+  --spacing-md: 4px;
+  --spacing-lg: 8px;
+}
+
+* {
+  font-size: var(--font-base);
+  color: var(--text-primary);
+  font-weight: 500;
+  font-family: "JetBrainsMono NFP";
+  margin: 0;
+  padding: 0;
+}
+
+.widget {
+  background-color: var(--bg-primary);
+}
+
+.widget .label {
+  padding: 1px var(--spacing-xs);
+}
+
+.widget .label.alt {
+  padding: 1px var(--spacing-lg);
+}
+
+.container-left,
+.container-center,
+.container-right {
+  margin: 0;
+  padding: 0;
+}
+
+.clock-widget {
+  border-radius: var(--radius-lg);
+  padding: 0 var(--spacing-lg);
+}
+
+.komorebi-active-layout {
+  padding: 0 var(--spacing-md) 0 0;
+}
+
+.komorebi-active-layout .label {
+  font-weight: 600;
+}
+
+.komorebi-workspaces {
+  border-top-left-radius: var(--radius-lg);
+  border-bottom-left-radius: var(--radius-lg);
+}
+
+.komorebi-workspaces .widget-container {
+  border-top-left-radius: var(--radius-lg);
+  border-bottom-left-radius: var(--radius-lg);
+  padding: 0 var(--spacing-lg);
+}
+
+.komorebi-active-layout .widget-container {
+  padding-right: var(--spacing-md);
+}
+
+.komorebi-workspaces .ws-btn {
+  font-size: var(--font-md);
+  background-color: transparent;
+  margin: 0 var(--spacing-sm);
+  color: var(--text-muted);
+  border: none;
+}
+
+.komorebi-workspaces .ws-btn.populated {
+  color: var(--text-populated);
+}
+
+.komorebi-workspaces .ws-btn:hover,
+.komorebi-workspaces .ws-btn.populated:hover,
+.komorebi-workspaces .ws-btn.active {
+  color: var(--text-active);
+}
+
+.komorebi-workspaces .float-override {
+  color: var(--accent-success);
+  font-size: var(--font-md);
+  padding-left: var(--spacing-lg);
+}
+
+.active-window-widget {
+  border-top-right-radius: var(--radius-lg);
+  border-bottom-right-radius: var(--radius-lg);
+  padding-right: var(--spacing-lg);
+}
+
+.volume-widget {
+  border-top-right-radius: var(--radius-lg);
+  border-bottom-right-radius: var(--radius-lg);
+  padding: 0 var(--spacing-lg);
+}
+
+.volume-widget .icon {
+  color: var(--accent-primary);
+  margin: 1px var(--spacing-xs) 0 0;
+}
+
+.weather-widget .icon {
+  font-size: var(--font-lg);
+  margin: 0 var(--spacing-xs) 1px 0;
+}
+
+.weather-widget .icon.sunnyDay {
+  color: var(--weather-sunny);
+}
+
+.weather-widget .icon.clearNight {
+  color: var(--weather-night);
+  font-size: 22px;
+  margin: 1px var(--spacing-xs) 0 0;
+}
+
+.media-widget {
+  padding: 0 var(--spacing-md);
+  border-top-left-radius: var(--radius-lg);
+  border-bottom-left-radius: var(--radius-lg);
+}
+
+
+
+.media-widget .btn {
+  color: var(--btn-text);
+  padding: 0 var(--spacing-sm);
+  margin: var(--spacing-md) 0;
+  font-family: Segoe Fluent Icons;
+}
+
+.media-widget .btn:hover {
+  color: var(--accent-primary);
+}
+
+
+.media-widget .btn.play {
+  background-color: var(--btn-bg);
+  border-radius: var(--radius-md);
+  font-size: var(--font-lg);
+}
+
+.media-widget .btn.disabled,
+.media-widget .btn.disabled:hover {
+  color: var(--btn-disabled);
+}
