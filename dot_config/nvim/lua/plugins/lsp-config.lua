@@ -18,8 +18,18 @@ return {
 
       require("mason").setup({})
       require('mason-lspconfig').setup({
-        ensure_installed = { 'ts_ls', 'lua_ls', 'eslint' },
+        ensure_installed = { 'ts_ls', 'lua_ls', 'eslint', 'rust_analyzer', 'taplo' },
         automatic_enable = true,
+      })
+
+      vim.lsp.config('rust_analyzer', {
+        settings = {
+          ['rust-analyzer'] = {
+            check = {
+              command = "clippy",
+            },
+          },
+        },
       })
       require('mason-tool-installer').setup({
         ensure_installed = {
@@ -34,6 +44,10 @@ return {
         group = vim.api.nvim_create_augroup('UserLspConfig', {}),
         callback = function(ev)
           vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
+          local client = vim.lsp.get_client_by_id(ev.data.client_id)
+          if client and client:supports_method('textDocument/inlayHint') then
+            vim.lsp.inlay_hint.enable(true, { bufnr = ev.buf })
+          end
           local function getOpts(desc)
             return { desc = desc, buffer = ev.buf }
           end
