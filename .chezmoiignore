@@ -1,6 +1,9 @@
+**/*.log
+
 {{- if ne .chezmoi.os "windows" }}
 # Ignore Windows-only configs everywhere except Windows
 .config/komorebi/**
 .config/yasb/**
 .config/.whkdrc
+
 {{- end }}
