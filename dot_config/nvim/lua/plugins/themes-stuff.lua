@@ -1,26 +1,20 @@
-local themes = { 'nyoom-engineering/oxocarbon.nvim', 'catppuccin/nvim', 'EdenEast/nightfox.nvim', 'rose-pine/neovim' }
+local themes = {
+	"nyoom-engineering/oxocarbon.nvim",
+	"catppuccin/nvim",
+	"EdenEast/nightfox.nvim",
+	"rose-pine/neovim",
+	"olimorris/onedarkpro.nvim",
+}
+local active_theme = "olimorris/onedarkpro.nvim"
 
 local returnTable = {}
 for i, v in ipairs(themes) do
-  table.insert(returnTable, {
-    v,
-    lazy = false,
-    priority = 1000 - i
-  })
+	local is_active = v == active_theme
+	table.insert(returnTable, {
+		v,
+		lazy = not is_active,
+		priority = is_active and 1001 or (1000 - i),
+	})
 end
 
--- manually adding onedark because it needs custom config
-
-table.insert(returnTable, {
-  'olimorris/onedarkpro.nvim',
-  lazy = false,
-  priority = 1000,
-  config = function()
-    require("onedarkpro").setup({
-      colors = {
-        onedark = { bg = "#1f2329" },
-      }
-    })
-  end
-})
 return returnTable

@@ -13,13 +13,22 @@ return {
     lazy = true,
     event = { "BufReadPost", "BufNewFile" },
     cmd = { "LspInfo", "LspInstall", "LspUninstall" },
+    dependencies = {
+      "mason-org/mason.nvim",
+      "mason-org/mason-lspconfig.nvim",
+      "WhoIsSethDaniel/mason-tool-installer.nvim",
+      "hrsh7th/cmp-nvim-lsp",
+    },
     config = function()
       local capabilities = require('cmp_nvim_lsp').default_capabilities()
+      local servers = { 'ts_ls', 'lua_ls', 'eslint', 'rust_analyzer', 'taplo' }
+
+      vim.lsp.config('*', { capabilities = capabilities })
 
       require("mason").setup({})
-      require('mason-lspconfig').setup({
-        ensure_installed = { 'ts_ls', 'lua_ls', 'eslint', 'rust_analyzer', 'taplo' },
-        automatic_enable = true,
+      local mason_lspconfig = require('mason-lspconfig')
+      mason_lspconfig.setup({
+        ensure_installed = servers,
       })
 
       vim.lsp.config('rust_analyzer', {
@@ -39,6 +48,18 @@ return {
           "black",
         },
       })
+
+      if mason_lspconfig.setup_handlers then
+        mason_lspconfig.setup_handlers({
+          function(server_name)
+            vim.lsp.enable(server_name)
+          end,
+        })
+      else
+        for _, server_name in ipairs(servers) do
+          vim.lsp.enable(server_name)
+        end
+      end
 
       vim.api.nvim_create_autocmd('LspAttach', {
         group = vim.api.nvim_create_augroup('UserLspConfig', {}),

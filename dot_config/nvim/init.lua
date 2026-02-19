@@ -10,6 +10,7 @@ if not vim.loop.fs_stat(lazypath) then
   })
 end
 vim.opt.rtp:prepend(lazypath)
+vim.cmd("filetype plugin indent on")
 
 require("global-options")
 require('key-maps')
