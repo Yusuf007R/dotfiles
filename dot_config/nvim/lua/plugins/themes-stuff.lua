@@ -5,7 +5,7 @@ local themes = {
 	"rose-pine/neovim",
 	"olimorris/onedarkpro.nvim",
 }
-local active_theme = "olimorris/onedarkpro.nvim"
+local active_theme = "EdenEast/nightfox.nvim"
 
 local returnTable = {}
 for i, v in ipairs(themes) do
