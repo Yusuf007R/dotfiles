@@ -9,7 +9,9 @@ alt + o                 : taskkill /f /im whkd.exe; Start-Process whkd -WindowSt
 # The apps will be focused if open, or launched if not open
 # alt + f                 : if ($wshell.AppActivate('Firefox') -eq $False) { start firefox }
 alt + b                 : if ($wshell.AppActivate('Brave') -eq $False) { start brave }
-alt + shift + return    : start wt 
+alt + shift + return : Start-Process -FilePath "wezterm-gui.exe" -ArgumentList @('start','--domain','WSL:Ubuntu')
+
+alt + shift + f12 : Start-Process -FilePath "wezterm-gui.exe" -ArgumentList @('start','--domain','local','--','pwsh.exe','-NoLogo')
 
 alt + q                 : komorebic close
 alt + m                 : komorebic minimize
