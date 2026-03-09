@@ -75,22 +75,11 @@ return {
             return { desc = desc, buffer = ev.buf }
           end
 
-          vim.keymap.set("n", "gD", vim.lsp.buf.declaration, getOpts("Go to declaration"))
-          vim.keymap.set("n", "gd", vim.lsp.buf.definition, getOpts("Go to definition"))
-          vim.keymap.set("n", "K", vim.lsp.buf.hover, getOpts("Show hover information"))
-          vim.keymap.set("n", "gi", vim.lsp.buf.implementation, getOpts("Go to implementation"))
-          vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, getOpts("Show signature help"))
           vim.keymap.set("n", "<leader>wa", vim.lsp.buf.add_workspace_folder, getOpts("Add workspace folder"))
           vim.keymap.set("n", "<leader>wr", vim.lsp.buf.remove_workspace_folder, getOpts("Remove workspace folder"))
           vim.keymap.set("n", "<leader>wl", function()
             print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
           end, getOpts("List workspace folders"))
-          vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, getOpts("Prev diagnostic"))
-          vim.keymap.set("n", "]d", vim.diagnostic.goto_next, getOpts("Next diagnostic"))
-          vim.keymap.set("n", "<leader>D", vim.lsp.buf.type_definition, getOpts("Go to type definition"))
-          vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, getOpts("Rename symbol"))
-          vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, getOpts("Code actions"))
-          vim.keymap.set("n", "gr", vim.lsp.buf.references, getOpts("Find references"))
         end,
       })
 

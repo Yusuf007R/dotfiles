@@ -4,9 +4,9 @@ local map = vim.keymap.set
 map({ 'n', 'i', 'v' }, '<C-s>', '<cmd>:w<CR>')
 
 map('n', '<leader>ln', function()
-  vim.o.relativenumber = not vim.o.relativenumber
+  vim.wo.relativenumber = not vim.wo.relativenumber
 end, {
-  desc = "Toggle relative line numbers"
+  desc = "Toggle relative number"
 })
 
 
