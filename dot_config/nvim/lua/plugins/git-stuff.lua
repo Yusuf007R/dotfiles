@@ -14,7 +14,7 @@ return {
 				show_help_hints = false,
 				view = {
 					default = {
-						layout = "diff2_vertical",
+						layout = "diff2_horizontal",
 					},
 					merge_tool = {
 						layout = "diff3_horizontal",
@@ -39,9 +39,10 @@ return {
 				"internal",
 				"filler",
 				"closeoff",
+				"context:3",
 				"algorithm:histogram",
-				"indent-heuristic",
 				"linematch:60",
+				"inline:word",
 			}
 		end,
 	},
