@@ -35,15 +35,7 @@ return {
 				},
 			})
 
-			vim.opt.diffopt = {
-				"internal",
-				"filler",
-				"closeoff",
-				"context:3",
-				"algorithm:histogram",
-				"linematch:60",
-				"inline:word",
-			}
+			vim.opt.diffopt = "internal,filler,closeoff,context:3,algorithm:histogram,linematch:60"
 		end,
 	},
 
